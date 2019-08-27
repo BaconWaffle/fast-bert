@@ -99,8 +99,7 @@ def convert_examples_to_features(examples, label_list, max_seq_length,
         if ex_index % 10000 == 0:
             if logger:
                 logger.info("Writing example %d of %d" % (ex_index, len(examples)))
-        print(example.text_a)
-        tokens_a = tokenizer.tokenize(example.text_a)
+        tokens_a = tokenizer.tokenize(text=example.text_a)
 
         tokens_b = None
         if example.text_b:
