@@ -422,7 +422,9 @@ class BertDataBunch(object):
                     pad_token_segment_id=4 if self.model_type in ['xlnet'] else 0,
                     logger=self.logger)
             
-            self.cache_dir.mkdir(exist_ok=True)  # Creaet folder if it doesn't exist
+            if not os.path.exists(self.cache_dir):
+                os.mkdir(self.cache_dir)
+            #self.cache_dir.mkdir(exist_ok=True)  # Creaet folder if it doesn't exist
             if self.no_cache == False:
                 self.logger.info("Saving features into cached file %s", cached_features_file)
                 torch.save(features, cached_features_file)
