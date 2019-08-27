@@ -289,7 +289,7 @@ class BertDataBunch(object):
 
         self.tokenizer = tokenizer  
         self.data_dir = data_dir
-        self.cache_dir = data_dir/'cache'    
+        self.cache_dir = data_dir+'/cache'    
         self.max_seq_length = max_seq_length
         self.batch_size_per_gpu = batch_size_per_gpu
         self.train_dl = None
